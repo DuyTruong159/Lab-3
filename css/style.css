@@ -1,0 +1,81 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: #fefefe;
+    background-color: #312a26;
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s;
+}
+
+a::before {
+    position: absolute;
+    content: "";
+    width: 130px;
+    height: 130px;
+    opacity: 0;
+    transition: all .5s;
+}
+
+a::after {
+    position: absolute;
+    content: "CLICK";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0;
+    height: 0;
+    border-radius: 100%;
+    background: #fefefe;
+    color: #312a26;
+    z-index: -1;
+    transition: all .5s;
+}
+
+a:hover {
+    background-color: #fefefe;
+    color: #312a26;
+    width: 0;
+    height: 0;
+    transition: all .5s;
+}
+
+a:hover::before {
+    border-radius: 100%;
+    border-top: #d39e80;
+    border-width: 6px;
+    border-style: solid;
+    opacity: 1;
+    transition: all .5s;
+    animation: spinner 2s linear infinite;
+}
+
+a:hover::after {
+    width: 130px;
+    height: 130px;
+    z-index: 0;
+    transition: all 1s;
+}
+
+@keyframes spinner {
+    0% { 
+        transform: rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(360deg); 
+    }
+}
